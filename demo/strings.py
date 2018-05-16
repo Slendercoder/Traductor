@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 
 def infinitivo(verbo):
@@ -6,7 +7,7 @@ def infinitivo(verbo):
     return verbo.upper() + "R"
 
 nc = ["hombre", "mujer", "libro"]
-vi = ["camina", "bebe"]
+vi = ["camina", "bebe", "corre"]
 vt = ["ama", "invita", "lee"]
 d = ["un", "una", "toda", "todo"]
 c = ["y", "o", "si ... entonces"]
@@ -14,7 +15,8 @@ np = ["pedro", "maria", "juan"]
 
 
 words = raw_input("Ingrese su frase: ")
-words2 = words.split(' ')
+words1 = words.lower()
+words2 = words1.split(' ')
 
 # pasar todas las palabras a minusculas
 # revisar que no queden as
