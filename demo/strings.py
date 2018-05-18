@@ -49,6 +49,9 @@ for w in words2:
 print "La lista de categorias es: ", categorias
 print "La longitud es: ", len(categorias)
 
+# Revisar si hay dos "np"s seguidos y unirlos en uno solo
+# Revisar si hay un "d" y si esta seguido de un "nc"
+
 # Decir que la frase no sirve si hay palabras por fuera del rango
 if len(categorias) < len(words2):
     print "No puedo computar esta frase (no conozco todas las palabras)"
