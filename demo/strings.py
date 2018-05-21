@@ -111,7 +111,6 @@ else:
     traducciones = []
     for i in range(len(words2)):
         if categorias[i] == 'nc':
-            print "El sustantivo es: ", words2[i]
             sust = words2[i].lower()
             print "El sustantivo es: ", sust
             traducciones.append(lambda x, sust=sust: str(sust) + "(" + str(x) + ")")
@@ -176,12 +175,12 @@ else:
             else:
                 print "No puedo computar esta frase (no hay sustantivo despues de determinante)"
 
-        n = len(traducciones)
-        formula = traducciones[n - 1]
-        for i in range(0, n-1):
-            j = (n - 2) - i
-            print "Operando con palabra " + str(j) + "esima"
-            formula = traducciones[j](formula)
+    n = len(traducciones)
+    formula = traducciones[n - 1]
+    for i in range(0, n-1):
+        j = (n - 2) - i
+        print "Operando con palabra " + str(j) + "esima"
+        formula = traducciones[j](formula)
 
     print "La formula en primer orden es: ",
     print formula
