@@ -1,5 +1,6 @@
 
 # -*- coding: utf-8 -*-
+import matplotlib.pyplot as plt
 
 def infinitivo(verbo):
     # Toma una cadena que se asume es un verbo
@@ -57,17 +58,23 @@ indices_para_eliminar = []
 for i in range(0, len(categorias) - 1):
     if categorias[i] == 'np':
         if categorias[i+1] == 'np':
-            print "Eureka!"
+            print "Hay dos np seguidos en " + str(i) + " y en " + str(i+1)
             indices_para_eliminar.append(i + 1)
 
-
-print indices_para_eliminar
+print "Indices para eliminar ", indices_para_eliminar
 
 #elimiar indices_para_eliminar de words2 y categorias
 for t in indices_para_eliminar and categorias:
     if t == 'np':
         print "Se elimino un ", t
         categorias.remove(t)
+
+aux = []
+for t in range(len(words2)):
+    if t not in indices_para_eliminar:
+        aux.append(words2[t])
+
+words2 = aux
 
 #indices_para_eliminar_nombres = []
 
@@ -92,13 +99,9 @@ for t in indices_para_eliminar and categorias:
 print "La lista de palabras es ", words2
 print "La longitud es: ", len(words2)
 
+print "La lista de categorias es: ", categorias
+print "La longitud es: ", len(categorias)
 
-# Revisar si hay un "d" y si esta seguido de un "nc" y avisar si no
-
-for i in range(0, len(categorias) - 1):
-    if categorias[i] == 'd1' or categorias[i] == 'd2':
-        if categorias[i+1] == 'nc':
-            print "Esooooo."
 
 # Decir que la frase no sirve si hay palabras por fuera del rango
 if len(categorias) < len(words2):
@@ -130,11 +133,48 @@ else:
         elif categorias[i] == 'd1':
             print "Hay un determinante: ", words2[i]
             traducciones.append(\
-            lambda X:(lambda Y:(+"∃x (" + X(str(x)) + "∧" + Y(str(x)) + ")")))
+            lambda X:(lambda Y:("∃x (" + X('x') + "∧" + Y('x') + ")")))
         elif categorias[i] == 'd2':
             print "Hay un determinante: ", words2[i]
             traducciones.append(\
-            lambda X:(lambda Y:(+"∀x" + (X(str(x)) + "→" + Y(str(x))))))
+            lambda X:(lambda Y:("∀x (" + X('x') + "→" + Y('x')  + ")")))
+
+
+    # Revisar si hay un "d" y si esta seguido de un "nc" y avisar si no
+    for j in range(0, len(categorias) - 1):
+        if categorias[j] == 'd1':
+            if categorias[j + 1] == 'nc':
+                print "Esooooo."
+                print len(traducciones)
+                aux = []
+                contador = 0
+                for k in range(len(traducciones) - 1):
+                    if k != j:
+                        aux.append(traducciones[contador])
+                        contador += 1
+                    else:
+                        aux.append(traducciones[j](traducciones[j + 1]))
+                        contador += 2
+                traducciones = aux
+                print len(traducciones)
+            else:
+                print "No puedo computar esta frase (no hay sustantivo despues de determinante)"
+
+        if categorias[j] == 'd2':
+            if categorias[j + 1] == 'nc':
+                print "Esooooo."
+                aux = []
+                contador = 0
+                for k in range(len(traducciones) - 1):
+                    if k != j:
+                        aux.append(traducciones[contador])
+                        contador += 1
+                    else:
+                        aux.append(traducciones[j](traducciones[j + 1]))
+                        contador += 2
+                traducciones = aux
+            else:
+                print "No puedo computar esta frase (no hay sustantivo despues de determinante)"
 
         n = len(traducciones)
         formula = traducciones[n - 1]
@@ -143,7 +183,7 @@ else:
             print "Operando con palabra " + str(j) + "esima"
             formula = traducciones[j](formula)
 
-        print "La formula en primer orden es: ",
-        print formula
+    print "La formula en primer orden es: ",
+    print formula
 
 print("©Maria Jose & Javier")
