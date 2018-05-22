@@ -13,7 +13,7 @@ vt = ["ama", "invita", "lee", "compra", "estudia", "escribe","quiere","alimenta"
 d1 = ["un", "una"]
 d2 = ["toda", "todo"]
 c = ["y", "o", "si", "entonces"]
-np = ["pedro", "maria", "juan", "javier", "jose", "angela", "Natalia", "rupaul", "carlos", "fernando", "alejandro", "miguel","esteban", "gabriela","oscar","samuel","victor","edgar", "carlos","eduardo", "sergio", "nicolas", "nathalia","camilo","sebastian","isabella","luisa","sara","rodrigo","angel", "daniel", "manuel","andres","felipe","david", "kevin","cristhian","edwin", "julian"]
+np = ["pedro", "maria", "juan", "javier", "jose", "angela", "natalia", "rupaul", "carlos", "fernando", "alejandro", "miguel","esteban", "gabriela","oscar","samuel","victor","edgar", "carlos","eduardo", "sergio", "nicolas", "nathalia","camilo","sebastian","isabella","luisa","sara","rodrigo","angel", "daniel", "manuel","andres","felipe","david", "kevin","cristhian","edwin", "julian", "maría", "josé"]
 
 words = raw_input("Ingrese su frase: ")
 words1 = words.lower()
@@ -59,12 +59,12 @@ for i in range(0, len(categorias) - 1):
     if categorias[i] == 'np':
         if categorias[i+1] == 'np':
             print "Hay dos np seguidos en " + str(i) + " y en " + str(i+1)
-            indices_para_eliminar.append(i + 1)
+            indices_para_eliminar.append(i+1)
 
 print "Indices para eliminar ", indices_para_eliminar
 
 #elimiar indices_para_eliminar de words2 y categorias
-for t in indices_para_eliminar and categorias:
+for t in indices_para_eliminar and categorias :
     if t == 'np':
         print "Se elimino un ", t
         categorias.remove(t)
@@ -111,7 +111,6 @@ else:
     traducciones = []
     for i in range(len(words2)):
         if categorias[i] == 'nc':
-            print "El sustantivo es: ", words2[i]
             sust = words2[i].lower()
             print "El sustantivo es: ", sust
             traducciones.append(lambda x, sust=sust: str(sust) + "(" + str(x) + ")")
@@ -176,12 +175,12 @@ else:
             else:
                 print "No puedo computar esta frase (no hay sustantivo despues de determinante)"
 
-        n = len(traducciones)
-        formula = traducciones[n - 1]
-        for i in range(0, n-1):
-            j = (n - 2) - i
-            print "Operando con palabra " + str(j) + "esima"
-            formula = traducciones[j](formula)
+    n = len(traducciones)
+    formula = traducciones[n - 1]
+    for i in range(0, n-1):
+        j = (n - 2) - i
+        print "Operando con palabra " + str(j) + "esima"
+        formula = traducciones[j](formula)
 
     print "La formula en primer orden es: ",
     print formula
