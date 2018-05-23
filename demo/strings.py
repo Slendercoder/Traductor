@@ -13,7 +13,7 @@ vt = ["ama", "invita", "lee", "compra", "estudia", "escribe","quiere","alimenta"
 d1 = ["un", "una"]
 d2 = ["toda", "todo"]
 c = ["y", "o", "si", "entonces"]
-np = ["pedro", "maria", "juan", "javier","abel", "mario","valerie", "jose", "angela", "natalia", "rupaul", "carlos", "fernando", "alejandro", "miguel","esteban", "gabriela","oscar","samuel","victor","edgar", "carlos","eduardo", "sergio", "nicolas", "nathalia","camilo","sebastian","isabella","luisa","sara","rodrigo","angel", "daniel", "manuel","andres","felipe","david", "kevin","cristhian","edwin", "julian", "maría", "josé"]
+np = ["pedro", "maria", "juan", "javier","abel", "mario","valerie", "jose", "angela", "natalia", "rupaul", "carlos", "fernando", "alejandro", "miguel","esteban", "gabriela","oscar","samuel","victor","edgar", "carlos","eduardo", "sergio", "nicolas", "nathalia","camilo","sebastian","isabella","luisa","sara","rodrigo","angel", "daniel", "manuel","andres","felipe","david", "kevin","cristhian","edwin", "julian", "maría", "josé", "juana"]
 
 words = raw_input("Ingrese su frase: ")
 words1 = words.lower()
