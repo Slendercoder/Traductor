@@ -5,6 +5,7 @@ def infinitivo(verbo):
     # y devuelve una cadena que es el verbo en infinitivo
     return verbo.upper() + "R"
 
+#lista de palabras de cada categoria.
 nc = ["hombre", "mujer", "libro", "animal", "niño","niña","fruta","amigo","amiga","profesor","profesora","edificio","perro", "pajaro","gato","pais","ciudad"]
 vi = ["camina", "bebe", "corre", "duerme","nada","sonrie", "vive", "baila", "come","canta","estornuda","fracasa","grita","llora","patina","pelea","respira","trabaja"]
 vt = ["ama", "invita", "lee", "compra", "estudia", "escribe","quiere","alimenta","asusta","dice","engaña", "evita", "llama","mira","olvida","necesita","molesta","perdona","visita", "viaja"]
@@ -13,6 +14,7 @@ d2 = ["toda", "todo"]
 c = ["y", "o", "si", "entonces"]
 np = ["pedro", "maria", "juan", "javier","abel", "mario","valerie", "jose", "angela", "natalia", "rupaul", "carlos", "fernando", "alejandro", "miguel","esteban", "gabriela","oscar","samuel","victor","edgar", "carlos","eduardo", "sergio", "nicolas", "nathalia","camilo","sebastian","isabella","luisa","sara","rodrigo","angel", "daniel", "manuel","andres","felipe","david", "kevin","cristhian","edwin", "julian", "maría", "josé", "juana", "bart", "lisa"]
 
+#pide al usuario una frase y la pasa a minusculas y las divide en una lista.
 words = raw_input("Ingrese su frase: ")
 words1 = words.lower()
 words2 = words1.split(' ')
@@ -74,26 +76,6 @@ for t in range(len(words2)):
 
 words2 = aux
 
-#indices_para_eliminar_nombres = []
-
-#for i in range(0, len(np) - 1):
-#    if np[i] == np[i]:
-#        if np[i+1] == np[i+1]:
-#            print "Yas!"
-#            indices_para_eliminar_nombres.append(i + 1)
-
-
-
-
-#print indices_para_eliminar_nombres
-
-#for t in indices_para_eliminar_nombres and words2:
-#    if t == words2[]:
-#        print "Se elimino un ", t
-#        words2.remove(t)
-
-
-
 print "La lista de palabras es ", words2
 print "La longitud es: ", len(words2)
 
@@ -105,7 +87,8 @@ print "La longitud es: ", len(categorias)
 if len(categorias) < len(words2):
     print "No puedo computar esta frase (no conozco todas las palabras)"
 else:
-    # crear un diccionario de categorias
+    # crear un diccionario de categorias, dónde a cada categoria se le
+    # asigna su debida expresión lógica.
     traducciones = []
     for i in range(len(words2)):
         if categorias[i] == 'nc':
@@ -141,7 +124,6 @@ else:
     for j in range(0, len(categorias) - 1):
         if categorias[j] == 'd1':
             if categorias[j + 1] == 'nc':
-                print "Esooooo."
                 print len(traducciones)
                 aux = []
                 contador = 0
@@ -159,7 +141,6 @@ else:
 
         if categorias[j] == 'd2':
             if categorias[j + 1] == 'nc':
-                print "Esooooo."
                 aux = []
                 contador = 0
                 for k in range(len(traducciones) - 1):
@@ -172,12 +153,12 @@ else:
                 traducciones = aux
             else:
                 print "No puedo computar esta frase (no hay sustantivo despues de determinante)"
-
+# Operar con las palabras de derecha a izquierda, aplicando la función lambda
+# para integrar una expresión en otra
     n = len(traducciones)
     formula = traducciones[n - 1]
     for i in range(0, n-1):
         j = (n - 2) - i
-        print "Operando con palabra " + str(j) + "esima"
         formula = traducciones[j](formula)
 
     print "La formula en primer orden es: ",
