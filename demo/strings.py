@@ -6,8 +6,8 @@ def infinitivo(verbo):
     return verbo.upper() + "R"
 
 nc = ["hombre", "mujer", "libro", "animal", "niño","niña","fruta","amigo","amiga","profesor","profesora","edificio","perro", "pajaro","gato","pais","ciudad"]
-vi = ["camina", "bebe", "corre", "duerme","nada","sonrie", "vive", "baila", "come","canta","estornuda","fracasa","grita","llora","patina","pelea","respira","trabaja","viaja"]
-vt = ["ama", "invita", "lee", "compra", "estudia", "escribe","quiere","alimenta","asusta","dice","engaña", "evita", "llama","mira","olvida","necesita","molesta","perdona","visita"]
+vi = ["camina", "bebe", "corre", "duerme","nada","sonrie", "vive", "baila", "come","canta","estornuda","fracasa","grita","llora","patina","pelea","respira","trabaja"]
+vt = ["ama", "invita", "lee", "compra", "estudia", "escribe","quiere","alimenta","asusta","dice","engaña", "evita", "llama","mira","olvida","necesita","molesta","perdona","visita", "viaja"]
 d1 = ["un", "una"]
 d2 = ["toda", "todo"]
 c = ["y", "o", "si", "entonces"]
